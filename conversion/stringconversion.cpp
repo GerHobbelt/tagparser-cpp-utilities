@@ -109,7 +109,7 @@ public:
 
         char *currentOutputOffset = outputBuffer;
         for (;; currentOutputOffset = outputBuffer + bytesWritten) {
-            bytesWritten = iconv(m_ptr, const_cast<char **>(&inputBuffer), &inputBytesLeft, &currentOutputOffset, &outputBytesLeft);
+            bytesWritten = iconv(m_ptr, const_cast<const char **>(&inputBuffer), &inputBytesLeft, &currentOutputOffset, &outputBytesLeft);
             if (bytesWritten == static_cast<size_t>(-1)) {
                 if (errno == EINVAL) {
                     // ignore incomplete multibyte sequence in the input
