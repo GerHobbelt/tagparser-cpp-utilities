@@ -839,7 +839,7 @@ inline const std::vector<Argument *> &Argument::path(std::size_t occurrence) con
  */
 inline bool Argument::isRequired() const
 {
-    return m_minOccurrences;
+    return m_minOccurrences != 0;
 }
 
 /*!
